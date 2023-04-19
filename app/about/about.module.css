@@ -1,0 +1,52 @@
+.aboutSection {
+  display: flex;
+  justify-content: center;
+}
+
+.aboutContent {
+  height: 100%;
+  width: 100%;
+  max-width: 1250px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  align-items: center;
+  gap: 1em;
+}
+
+.profilePicture {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.backdrop {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  max-height: 450px;
+  max-width: 450px;
+  background: #ffffff;
+  box-shadow: -5px 5px 1px #929292;
+}
+
+.profileInfo {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+}
+
+@media screen and (max-width: 800px) {
+  .aboutContent {
+    padding: 1em;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50% 50%;
+  }
+  .profileInfo {
+    align-items: start;
+  }
+}

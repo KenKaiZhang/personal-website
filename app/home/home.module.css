@@ -1,0 +1,24 @@
+.homeContent {
+  height: 100%;
+  width: 100%;
+}
+
+.introText {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.introText p {
+  font-size: 1em;
+  color: #ffffff;
+}
+
+.introText h1 {
+  font-size: 5.2em;
+  margin-bottom: 0.1em;
+}
