@@ -28,7 +28,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "app/api/send-email/route.tsx"
+    "app/api/send-email/route.tsx",
+    "app/loader/page.tsx"
   ],
   "exclude": ["node_modules"]
 }

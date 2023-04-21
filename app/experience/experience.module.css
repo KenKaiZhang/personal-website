@@ -4,17 +4,14 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  background: #ffffff;
 }
 
-.title {
-  position: absolute;
-  top: 6%;
-  font-size: 6em;
-  color: #ffffff;
-  mix-blend-mode: difference;
-  z-index: 10;
-  transition: 1s;
+.experienceContent {
+  margin-top: 3em;
+  position: relative;
+  height: 80%;
+  width: 100%;
+  max-width: 1250px;
 }
 
 .tilt {
@@ -36,7 +33,7 @@
 }
 
 .shapeFill {
-  fill: #1f1f1f;
+  fill: var(--main-color);
 }
 
 @media screen and (max-width: 800px) {

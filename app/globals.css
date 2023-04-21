@@ -6,6 +6,10 @@
     url("/fonts/RampartOne-Regular.ttf") format("truetype");
 }
 
+:root {
+  --main-color: #1d1d1d;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -22,7 +26,7 @@
 }
 
 body {
-  background: #1f1f1f;
+  background: #1d1d1d;
 }
 
 section {
@@ -34,11 +38,19 @@ section {
 
 nav {
   position: fixed;
-  width: 30%;
-  max-width: 20px;
-  bottom: 1.4em;
-  left: 0.5em;
+  padding-bottom: 1em;
+  height: 150px;
+  width: 100%;
+  bottom: -5em;
+  left: 0;
+  display: flex-end;
   z-index: 5;
+  background-image: linear-gradient(
+    to bottom,
+    #1d1d1d00,
+    #1d1d1d52 50%,
+    #1d1d1de7 70%
+  );
 }
 
 .background-text {
@@ -55,9 +67,9 @@ nav {
 
 .background-text p {
   font-family: "Gotham Black", sans-serif;
-  font-size: 80em;
+  font-size: 70em;
   font-weight: 700;
-  color: #2e2e2e;
+  color: #2c2c2c;
   opacity: 35%;
   animation: scrollingText 35s infinite linear;
 }
@@ -107,6 +119,10 @@ nav {
     font-size: 12px;
   }
   nav {
-    width: 70%;
+    bottom: -7em;
+    width: 100%;
+  }
+  section {
+    margin-bottom: 2em;
   }
 }

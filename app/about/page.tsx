@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { motion } from "framer-motion";
 import ProfileInfo from "@/components/ProfileInfo/ProfileInfo";
@@ -20,7 +22,13 @@ const About: React.FunctionComponent = (props) => {
           whileInView={{ opacity: 1, transition: { duration: 2 } }}
         >
           <div className={styles.backdrop}>
-            <Corners margin="0.5em" />
+            <Corners
+              margin="0.5em"
+              height="98.5%"
+              width="98.5%"
+              borderColor={""}
+              variants={{}}
+            />
           </div>
           <ProfilePicture
             src="/svg/zhang_logo_black.svg"

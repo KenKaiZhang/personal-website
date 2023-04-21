@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import Corners from "../Corners/Corners";
 import "./Tree.css";
 import { Variants } from "framer-motion";
-import { useWindowWidth } from "@/util/windowResize";
+import { useWindowWidth } from "@/hooks/useWindowWidth";
 
 export interface TreeProps {
   data: any[];

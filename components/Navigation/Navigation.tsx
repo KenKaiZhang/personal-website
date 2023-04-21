@@ -4,10 +4,11 @@ import React, { useCallback, useEffect, useState } from "react";
 import { Variants, motion } from "framer-motion";
 import Image from "next/image";
 import { capitalizeString } from "@/util/format";
+import { smoothClickNav } from "@/util/click";
+import { useWindowWidth } from "@/hooks/useWindowWidth";
+import { useActiveSection } from "@/hooks/useActiveSection";
 
 import "./Navigation.css";
-import { smoothClickNav } from "@/util/click";
-import { useWindowWidth } from "@/util/windowResize";
 
 const sections = ["home", "about", "experience", "projects", "contact"];
 
@@ -21,44 +22,31 @@ const liVariant: Variants = {
   visible: { opacity: 1 },
 };
 
-export interface NavigationProps {
-  setActive: any;
-}
+const Navigation: React.FunctionComponent = () => {
+  var activeNav = useActiveSection();
 
-const Navigation: React.FunctionComponent<NavigationProps> = (props) => {
-  const [activeNav, setActiveNav] = useState("home");
-  const { setActive } = props;
   const miniScreen = useWindowWidth() < 800;
   const colorFlipNav = miniScreen
-    ? ["experience", , "contact"]
-    : ["experience", "contact"];
+    ? ["projects", "contact"]
+    : ["projects", "contact"];
 
   const blackColor = { color: "#000000" };
 
-  const handleButtonClick = useCallback(
-    (e: any) => {
-      setActiveNav(e.target.id);
-      setActive(e.target.id);
-      smoothClickNav(`${e.target.id}-section`);
-    },
-    [setActive]
-  );
+  const handleButtonClick = (e: any) => {
+    activeNav = e.target.id;
+    console.log(activeNav);
+    smoothClickNav(`${activeNav}-section`);
+  };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      sections.map((sec, i) => {
-        const sectionHTML = document.querySelector(
-          `#${sec}-section`
-        ) as HTMLElement;
-        if (sectionHTML.getBoundingClientRect().top < 850) {
-          setActiveNav(sec);
-          setActive(sec);
-        }
-      });
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  });
+  const navHTML = document.querySelector("nav") as HTMLElement;
+  if (navHTML && activeNav === "home") {
+    navHTML.style.backgroundImage = "none";
+  } else if (navHTML && colorFlipNav.includes(activeNav)) {
+    navHTML.style.backgroundImage = "none";
+  } else if (navHTML && !colorFlipNav.includes(activeNav)) {
+    navHTML.style.backgroundImage =
+      "linear-gradient(to bottom,#1d1d1d00,#1d1d1d52 40%,#1d1d1de7 70%)";
+  }
 
   return (
     <motion.div
@@ -118,6 +106,25 @@ const Navigation: React.FunctionComponent<NavigationProps> = (props) => {
           </motion.li>
         );
       })}
+      <motion.li
+        whileHover={{ translateY: -10 }}
+        onClick={handleButtonClick}
+        className="navbutton"
+        variants={liVariant}
+      >
+        <a
+          href="pdf/Resume2023.pdf"
+          download="ChenKaiZhangResume2023"
+          target="_blank"
+        >
+          <button
+            id="resume"
+            style={colorFlipNav.includes(activeNav) ? blackColor : {}}
+          >
+            Resume
+          </button>
+        </a>
+      </motion.li>
     </motion.div>
   );
 };

@@ -1,8 +1,10 @@
+import { useWindowWidth } from "./useWindowWidth";
+
 export const smoothClickNav = (id: string) => {
   const targetElement = document.getElementById(id);
   targetElement?.scrollIntoView({
     behavior: "smooth",
-    block: "start",
+    block: "center",
     inline: "nearest",
   });
 };
@@ -13,7 +15,9 @@ export const toggleActive = (query: string) => {
 };
 
 export const toggleSection = (sectionId: string) => {
-  const targetSection = document.querySelector(`section #${sectionId}`);
+  const targetSection = document.querySelector(
+    `section #${sectionId}`
+  ) as HTMLElement;
   if (targetSection.style.display === "none") {
     targetSection.style.display = "block";
   } else {

@@ -5,6 +5,8 @@ import { motion, Variants } from "framer-motion";
 import Project from "@/components/Project/Project";
 
 import styles from "./projects.module.css";
+import { useActiveSection } from "@/hooks/useActiveSection";
+import Title from "@/components/Title/Title";
 
 const projectsList = [
   {
@@ -40,12 +42,8 @@ const variants: Variants = {
   visible: { opacity: 1, transition: { duration: 1 } },
 };
 
-export interface ProjectsProp {
-  active: boolean;
-}
-
-const Projects: React.FunctionComponent<ProjectsProp> = (props) => {
-  const { active } = props;
+const Projects: React.FunctionComponent = () => {
+  const active: boolean = useActiveSection() === "projects" ? true : false;
 
   const [activeProject, setActiveProject] = useState(projectsList[0].id);
 
@@ -57,26 +55,8 @@ const Projects: React.FunctionComponent<ProjectsProp> = (props) => {
       initial="hidden"
       whileInView="visible"
     >
-      <div className={styles.triangle}>
-        <svg
-          data-name="Layer 1"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M598.97 114.72L0 0 0 120 1200 120 1200 0 598.97 114.72z"
-            className={styles.shapeFill}
-          ></path>
-        </svg>
-      </div>
       <div className={styles.projectsContent}>
-        <div
-          className={styles.projectTitle}
-          style={{ display: active ? "flex" : "none" }}
-        >
-          <h1>Projects...</h1>
-        </div>
+        <Title title="Projects" active={active} />
         <div className={styles.projects}>
           {projectsList.map((proj, i) => {
             return (

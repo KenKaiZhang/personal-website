@@ -14,7 +14,6 @@ import "./page.css";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
-  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     loading
@@ -32,15 +31,13 @@ export default function App() {
         ) : (
           <React.Fragment>
             <nav>
-              <Navigation setActive={setActiveSection}></Navigation>
+              <Navigation />
             </nav>
             <div className="content">
               <Home />
               <About />
-              <Experience
-                active={activeSection === "experience" ? true : false}
-              />
-              <Projects active={activeSection === "projects" ? true : false} />
+              <Experience />
+              <Projects />
               <Contact />
             </div>
           </React.Fragment>

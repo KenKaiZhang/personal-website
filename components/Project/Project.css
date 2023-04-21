@@ -85,16 +85,16 @@
   font-size: 1.3em;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1200px) {
   .project {
     left: 0;
     width: 100%;
-    padding: 1em;
+    padding: 2em;
     justify-content: center;
   }
   .fake-website {
     width: 90%;
-    opacity: 0.3;
+    opacity: 0.2;
   }
 
   .image img {

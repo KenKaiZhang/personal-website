@@ -1,7 +1,11 @@
+"use client";
+
 import React from "react";
-import Tree from "@/components/TreeTimeline/Tree";
+import Boxes from "@/components/Boxes/Boxes";
+import Title from "@/components/Title/Title";
 
 import styles from "./experience.module.css";
+import { useActiveSection } from "@/hooks/useActiveSection";
 
 const experience = [
   {
@@ -61,12 +65,8 @@ const experience = [
   },
 ];
 
-export interface ExperienceProps {
-  active: boolean;
-}
-
-const Experience: React.FunctionComponent<ExperienceProps> = (props) => {
-  const { active } = props;
+const Experience: React.FunctionComponent = () => {
+  const active: boolean = useActiveSection() === "experience" ? true : false;
 
   return (
     <section
@@ -74,23 +74,11 @@ const Experience: React.FunctionComponent<ExperienceProps> = (props) => {
       id="experience-section"
       data-page="experience"
     >
-      <h1 className={styles.title} style={{ left: active ? "0.5em" : "-100%" }}>
-        Experience
-      </h1>
-      <div className={styles.tilt}>
-        <svg
-          data-name="Layer 1"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M1200 120L0 16.48 0 0 1200 0 1200 120z"
-            className={styles.shapeFill}
-          ></path>
-        </svg>
+      <div className={styles.experienceContent}>
+        <Title title="Experience" active={active} />
+        <Boxes data={experience} />
+        {/* <Tree data={experience} /> */}
       </div>
-      <Tree data={experience} />
     </section>
   );
 };

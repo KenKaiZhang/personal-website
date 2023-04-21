@@ -1,0 +1,40 @@
+.title {
+  margin: 2em 0 2em;
+  width: 100%;
+  display: flex;
+  text-align: center;
+  z-index: 10;
+}
+
+.blank {
+  min-height: 60px;
+}
+
+.title h1 {
+  overflow: hidden;
+  color: #ffffff;
+  font-size: 4em;
+  border-right: 4px solid #ffffff;
+  white-space: nowrap;
+  margin: 0 auto;
+  animation: typing 1s steps(14, end), blink-caret 0.8s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 30%;
+  }
+}
+
+@keyframes blink-caret {
+  0%,
+  100% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #ffffff;
+  }
+}

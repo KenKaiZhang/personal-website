@@ -3,7 +3,7 @@
 import React from "react";
 import { Variants, motion } from "framer-motion";
 import Corners from "@/components/Corners/Corners";
-import { useWindowWidth } from "@/util/windowResize";
+import { useWindowWidth } from "@/hooks/useWindowWidth";
 
 import styles from "./home.module.css";
 
@@ -64,7 +64,9 @@ const Home: React.FunctionComponent = (props) => {
           initial="hidden"
           animate="visible"
         >
-          <h1 id="name">Ken Zhang</h1>
+          <div className="gradient-text">
+            <h1 id="name">Ken Zhang</h1>
+          </div>
           <p>Aspiring UI/UX Developer</p>
         </motion.div>
       </div>

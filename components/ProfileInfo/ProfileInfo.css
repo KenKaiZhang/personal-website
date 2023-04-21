@@ -62,7 +62,7 @@
   }
   .technologies {
     position: absolute;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
   .technologies li {
     margin-right: 3em;

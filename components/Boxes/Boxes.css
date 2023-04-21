@@ -1,0 +1,46 @@
+.boxes {
+  padding: 2em;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2em;
+}
+
+.box {
+  position: relative;
+  background-color: #30303023;
+  transition: 1s ease;
+}
+
+.box-text {
+  padding: 2em;
+  height: 100%;
+  width: 100%;
+}
+
+.box-text h1 {
+  margin-bottom: 0em;
+  font-size: 2em;
+  text-align: center;
+}
+
+.box-text h3 {
+  margin-bottom: 1.5em;
+  font-size: 1.3em;
+  text-align: center;
+}
+
+.box-text li {
+  font-size: 1.2em;
+  margin-bottom: 1em;
+}
+
+@media screen and (max-width: 800px) {
+  .boxes {
+    grid-template-columns: 1fr;
+  }
+  .box {
+    margin: 0 1em 0;
+  }
+}

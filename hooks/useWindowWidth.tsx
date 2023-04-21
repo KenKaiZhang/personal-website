@@ -2,10 +2,8 @@
 import { useState, useEffect } from "react";
 
 export const useWindowWidth = () => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [width, setWidth] = useState(window.innerWidth);
+  const [width, setWidth] = useState(1000);
 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     const handleResize = () => {
       setWidth(window.innerWidth);
